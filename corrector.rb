@@ -4,3 +4,5 @@ class Corrector
     name[0, 10] if name.length > 10
   end
 end
+
+
