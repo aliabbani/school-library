@@ -15,7 +15,7 @@ class Person
   end
 
   def can_use_services?
-    is_of_age? || parent_permission == true
+    is_of_age? OR parent_permission == true
   end
 
   def validate_name
