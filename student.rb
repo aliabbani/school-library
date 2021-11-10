@@ -3,7 +3,7 @@ require './person.rb'
 class Student < Person
   attr_reader :classroom
 
-  def initialize(classroom, age, name = 'unknown', parent_permission = true)
+  def initialize(classroom, age, name = 'unknown', parent_permission: true)
     super(age, name, parent_permission)
     @classroom = classroom
   end
@@ -19,4 +19,4 @@ class Student < Person
 end
 
 # ali = Student.new("Enginner", 28, "Ali")
-# puts ali.name
+# puts ali.parent_permission
