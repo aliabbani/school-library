@@ -50,15 +50,15 @@ require './rental'
 # puts book_1.rentals.count
 # puts book_1.rentals.map{|rent| rent.person.name}
 
-# ali = Person.new(28, "Ali")
-# ruben = Student.new(17, "Ruben", false)
+ali = Person.new(28, "Ali")
+ruben = Student.new(17, "Ruben", false)
 
-# book_1 = Book.new("Algorithm", "William B")
-# book_2 = Book.new("Football Management", "Alex Ferguson")
+book_1 = Book.new("Algorithm", "William B")
+book_2 = Book.new("Football Management", "Alex Ferguson")
 
-# ali.add_rental("2021-11-11", book_1)
-# book_2.add_rental("2021-10-10", ali)
-# rental_1 = Rental.new("2021-09-09", book_2, ruben)
+ali.add_rental("2021-11-11", book_1)
+book_2.add_rental("2021-10-10", ali)
+rental_1 = Rental.new("2021-09-09", book_2, ruben)
 
 # puts ali.rentals.map {|rent| rent.book.title}
 # puts ruben.rentals.count
@@ -66,3 +66,4 @@ require './rental'
 
 # puts book_1.rentals.count
 # puts book_2.rentals.count
+puts Book
