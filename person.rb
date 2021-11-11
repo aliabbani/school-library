@@ -1,15 +1,16 @@
-require './corrector.rb'
+require './corrector'
 
 class Person
-  attr_accessor :name, :age, :parent_permission
+  attr_accessor :name, :age, :parent_permission, :rentals
   attr_reader :id, :corrector
 
-  def initialize(age, name = 'unknown', parent_permission: true)
+  def initialize(age, name = 'unknown', parent_permission = { parent_permission: true })
     @id = Random.rand(1..1000)
     @name = name
     @age = age
     @parent_permission = parent_permission
     @corrector = Corrector.new
+    @rentals = []
   end
 
   def of_age?
@@ -24,9 +25,13 @@ class Person
     @name = @corrector.correct_name(@name)
   end
 
+  def add_rental(date, book)
+    Rental.new(date, book, self)
+  end
+
   private :of_age?
 end
 
-# person = Person.new(28, "alialialiali")
-# puts(person.name)
+# person = Person.new(28, "bignameishere")
+# puts(person.parent_permission)
 # puts(person.validate_name())
