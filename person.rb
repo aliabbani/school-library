@@ -1,10 +1,10 @@
-require './corrector.rb'
+require './corrector'
 
 class Person
   attr_accessor :name, :age, :parent_permission
   attr_reader :id, :corrector, :rentals
 
-  def initialize(age, name = 'unknown', parent_permission = {parent_permission: true})
+  def initialize(age, name = 'unknown', parent_permission = { parent_permission: true })
     @id = Random.rand(1..1000)
     @name = name
     @age = age

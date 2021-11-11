@@ -1,10 +1,10 @@
-require './person.rb'
-require './student.rb'
-require './teacher.rb'
-require './corrector.rb'
-require './classroom.rb'
-require './book.rb'
-require './rental.rb'
+require './person'
+require './student'
+require './teacher'
+require './corrector'
+require './classroom'
+require './book'
+require './rental'
 
 # Make sure that when adding a student to a classroom it also sets the classroom for the student.
 # ali = Student.new("Enginner", 28, "Ali")
@@ -16,7 +16,7 @@ require './rental.rb'
 # puts business.students
 
 # Make sure that when setting the classroom for a student it also adds it to the classrooms' students.
-# ali.classroom 
+# ali.classroom
 
 # ali = Person.new(28, "Ali")
 # lara = Person.new(26, "Lara")
