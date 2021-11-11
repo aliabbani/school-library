@@ -18,6 +18,6 @@ require './rental.rb'
 # Make sure that when setting the classroom for a student it also adds it to the classrooms' students.
 # ali.classroom 
 
-# person = Person.new(28, "Ali")
-# puts(person.parent_permission)
-# puts(person.name)
+# ali = Person.new(28, "Ali")
+# rami = Student.new("Enginner", 32, "Rami")
+# puts(rami.classroom)
