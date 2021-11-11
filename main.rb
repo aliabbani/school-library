@@ -66,6 +66,15 @@ class App
         # puts(@people.map {|p| p.age})
         # puts(@people.map {|p| p.parent_permission})
         # puts(@people)
+        if choose == "4"
+            print "Title :"
+            title = gets.chomp
+            print "Author: "
+            author = gets.chomp
+            book = Book.new(title: title, author:author)
+            @books << book
+            puts "Book created successfully"
+        end
     end
 end
 
