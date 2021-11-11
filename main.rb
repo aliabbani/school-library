@@ -40,15 +40,25 @@ class App
         if choose == "3"
             puts "Do you want to create a student (1) or a teacher (2)? [input the number]:"
             choose_3 = gets.chomp
-            if choose_3 == "1" || choose_3 == "2"
+            if choose_3 == "1" 
                 print "Age :"
                 age = gets.chomp
                 print "Name: "
                 name = gets.chomp
                 print "Has parent permission? [Y/N]:"
                 parent_permission = gets.chomp
-                person = Person.new(age: age, name: name, parent_permission: parent_permission)
-                @people << person
+                student = Student.new(age: age, name: name, parent_permission: parent_permission)
+                @people << student
+                puts "Person created successfully"
+            elsif choose_3 == "2"
+                print "Age :"
+                age = gets.chomp
+                print "Name: "
+                name = gets.chomp
+                print "Specialization:"
+                specialization = gets.chomp
+                teacher = Teacher.new(age: age, name: name, specialization: specialization)
+                @people << teacher
                 puts "Person created successfully"
             end
         end
