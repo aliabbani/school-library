@@ -53,7 +53,7 @@ require './rental'
 # ali = Person.new(28, "Ali")
 # ruben = Student.new(17, "Ruben", false)
 
-# book_1 = Book.new("Algorithm", "William B") 
+# book_1 = Book.new("Algorithm", "William B")
 # book_2 = Book.new("Football Management", "Alex Ferguson")
 
 # ali.add_rental("2021-11-11", book_1)
@@ -66,4 +66,3 @@ require './rental'
 
 # puts book_1.rentals.count
 # puts book_2.rentals.count
-
