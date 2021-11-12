@@ -115,6 +115,14 @@ class App
         @rentals << rental
         puts "Rental created successfully"
     end
+
+    def list_rentals
+        puts "ID of person:"
+        id = gets.chomp
+        puts "Rentals:"
+        rentals = @rentals.select {|rental| rental.person.id == id.to_i}
+        rentals.each { |rent| puts "Date: #{rent.date}, Book #{rent.book.title} by #{rent.book.author}"}
+    end
     
     def exit
         print "Thank you for using this app!"
