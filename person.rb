@@ -3,6 +3,7 @@ require './corrector'
 class Person
   attr_accessor :name, :age, :parent_permission, :rentals
   attr_reader :id, :corrector
+
   DEFAULT_BOOL = true
 
   def initialize(age, name = 'unknown', parent_permission = DEFAULT_BOOL)
@@ -33,10 +34,8 @@ class Person
   private :of_age?
 end
 
-
-person = Person.new(28, "bignameishere")
+person = Person.new(28, 'bignameishere')
 puts(person.age)
 # puts(person.validate_name())
-
 
 # parent_permission = { parent_permission: true }
