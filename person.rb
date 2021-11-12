@@ -4,7 +4,9 @@ class Person
   attr_accessor :name, :age, :parent_permission, :rentals
   attr_reader :id, :corrector
 
-  def initialize(age, name = 'unknown', parent_permission = { parent_permission: true })
+  DEFAULT_BOOL = true
+
+  def initialize(age, name = 'unknown', parent_permission = DEFAULT_BOOL)
     @id = Random.rand(1..1000)
     @name = name
     @age = age
@@ -32,6 +34,8 @@ class Person
   private :of_age?
 end
 
-# person = Person.new(28, "bignameishere")
-# puts(person.parent_permission)
+person = Person.new(28, 'bignameishere')
+puts(person.age)
 # puts(person.validate_name())
+
+# parent_permission = { parent_permission: true }

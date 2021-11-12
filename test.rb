@@ -1,10 +1,10 @@
-require './person'
-require './student'
-require './teacher'
-require './corrector'
-require './classroom'
-require './book'
-require './rental'
+# require './person'
+# require './student'
+# require './teacher'
+# require './corrector'
+# require './classroom'
+# require './book'
+# require './rental'
 
 # Make sure that when adding a student to a classroom it also sets the classroom for the student.
 # ali = Student.new("Enginner", 28, "Ali")
@@ -66,3 +66,4 @@ require './rental'
 
 # puts book_1.rentals.count
 # puts book_2.rentals.count
+# puts Book
