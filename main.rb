@@ -29,7 +29,10 @@ class App
         end
         
         choose = gets.chomp.to_i
-        break if choose == 7
+        if choose == 7
+            print "You are amazing. Thank you for using this app!"
+            break
+        end
 
         choose_list choose
         end
@@ -49,8 +52,6 @@ class App
             create_rentals
         elsif choose == 6
             list_rentals
-        # elsif choose == 7
-        #     exit
         else choose > 8
             puts "Please choose from the list"
         end
@@ -61,8 +62,8 @@ class App
     end
 
     def list_people
-        puts "Hello we will list all people!"
-        @people.each { |p| puts "Name: #{p.name}, Age: #{p.age}, ID: #{p.id}"}
+        # puts "Hello we will list all people!"
+        @people.each { |p| puts "[#{p.class}] Name: #{p.name}, Age: #{p.age}, ID: #{p.id}"}
     end
 
     def create_person
@@ -94,7 +95,7 @@ class App
     def create_book
         print "Title:"
         title = gets.chomp
-        print "Author: "
+        print "Author:"
         author = gets.chomp
         book = Book.new(title: title, author: author)
         @books << book
@@ -102,26 +103,22 @@ class App
     end
 
     def create_rentals
-        print "Select a book from the folowing list by number"
-        list_books
-        book = gets.chomp
-        print "Select a person from the folowing list by number (not id)"
-        list_people
-        person = gets.chomp
-        print "Date"
+        print "Select a book from the folowing list by number\n"
+        @books.each_with_index { |book, index| puts "#{index}) Title: #{book.title}, Author: #{book.author}"}
+        book_index = gets.chomp.to_i
+        print "Select a person from the folowing list by number (not id)\n"
+        @people.each_with_index { |p, index| puts "#{index}) [#{p.class}] Name: #{p.name}, Age: #{p.age}, ID: #{p.id}"}
+        person_index = gets.chomp.to_i
+        print "Date: "
         date = gets.chomp
-        rental = Rental.new(date: date, book: book, person: person)
+        rental = Rental.new(date, @books[book_index], @people[person_index])
         @rentals << rental
         puts "Rental created successfully"
     end
-
-    def list_rentals
-        @rentals.each { |rental| puts rental}
+    
+    def exit
+        print "Thank you for using this app!"
     end
-
-    # def exit
-    #     puts "We will exit"
-    # end
 end
 
 def main
