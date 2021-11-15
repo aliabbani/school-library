@@ -1,13 +1,12 @@
-# require './person'
-# require './student'
-# require './teacher'
-# require './classroom'
-# require './book'
-# require './rental'
-require './refactor'
+require './person_module'
+require './book_module'
+require './rental_module'
 
 class App
-include Refactor
+  include NewPeople
+  include NewBook
+  include NewRental
+
   def initialize
     @people = []
     @books = []
@@ -30,12 +29,37 @@ include Refactor
 
       choose = gets.chomp.to_i
       if choose == 7
-        # print 'You are amazing. Thank you for using this app!'
-        exit
+        puts 'You are amazing. Thank you for using this app!'
         break
       end
 
       choose_list_action(choose)
+    end
+  end
+
+  def select_option
+    puts 'Do you want to create a student (1) or a teacher (2)? [input the number]:'
+    choose3 = gets.chomp.to_i
+    create_student if choose3 == 1
+    create_teacher if choose3 == 2
+  end
+
+  def choose_list_action(choose)
+    case choose
+    when 1
+      list_books
+    when 2
+      list_people
+    when 3
+      select_option
+    when 4
+      create_book
+    when 5
+      create_rentals
+    when 6
+      list_rentals
+    else
+      puts 'Please choose from the list'
     end
   end
 end
