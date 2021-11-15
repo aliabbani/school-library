@@ -14,13 +14,12 @@ module NewPeople
   end
 
   def create_teacher
-    print 'Age:'
-    age = gets.chomp
-    print 'Name:'
-    name = gets.chomp
-    print 'Specialization:'
-    specialization = gets.chomp
-    teacher = Teacher.new(specialization, age, name)
+    input_obj = { 'Age: ' => '', 'Name: ' => '', 'Specialization: ' => '' }
+    input_obj.each do |key, _value|
+      print key
+      _value = gets.chomp
+    end
+    teacher = Teacher.new(input_obj[2], input_obj[0], input_obj[1])
     @people << teacher
     puts 'Person created successfully'
   end
