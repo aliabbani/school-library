@@ -1,14 +1,19 @@
 require './book'
 
 module NewBook
-  def create_book
-    print 'Title:'
+  def get_book_info
+    print 'Title: '
     title = gets.chomp
-    print 'Author:'
+    print 'Author: '
     author = gets.chomp
+    puts 'Book created successfully'
+    [title, author]
+  end
+
+  def create_book
+    title, author = get_book_info
     book = Book.new(title: title, author: author)
     @books << book
-    puts 'Book created successfully'
   end
 
   def list_books
