@@ -29,11 +29,15 @@ module NewRental
     puts 'Rental created successfully'
   end
 
-  def list_rentals
+  def extract_list_rentals
     puts 'ID of person:'
     id = gets.chomp
     puts 'Rentals:'
-    rentals = @rentals.select { |rental| rental.person.id == id.to_i }
+    @rentals.select { |rental| rental.person.id == id.to_i }
+  end
+
+  def list_rentals
+    rentals = extract_list_rentals
     rentals.each { |rent| puts "Date: #{rent.date}, Book #{rent.book.title} by #{rent.book.author}" }
   end
 
