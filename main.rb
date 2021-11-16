@@ -1,16 +1,22 @@
+require 'json'
 require './person_module'
 require './book_module'
 require './rental_module'
+require './data'
+require './read_data'
 
 class App
   include NewPeople
   include NewBook
   include NewRental
+  include StoreData
+  include ReadFiles
 
   def initialize
     @people = []
     @books = []
     @rentals = []
+    # @fetched_persons_list = []
     @choose_list = {
       '1' => 'List all books',
       '2' => 'List all people',
@@ -24,11 +30,17 @@ class App
 
   def run
     puts "Welcome to School Library App!\n\n"
+    # @fetched_persons_list << fetch_persons
+    # puts @fetched_persons_list
+    fetch_persons
     loop do
       @choose_list.each { |key, value| puts "#{key} - #{value}" }
 
       choose = gets.chomp.to_i
       if choose == 7
+        all_persons(@people)
+        all_books(@books)
+        all_rentals(@rentals)
         puts 'You are amazing. Thank you for using this app!'
         break
       end
