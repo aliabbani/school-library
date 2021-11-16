@@ -2,26 +2,39 @@ require './student'
 require './teacher'
 
 module NewPeople
+  def get_student_info
+    @type = type
+    print 'Age:'
+    age = gets.chomp
+    print 'Name:'
+    name = gets.chomp
+    print 'Has parent permission? [Y/N]:'
+    gets.chomp
+    [age, name]
+  end
+
   def create_student
-    input_obj = { 'Age: ' => '', 'Name: ' => '', 'Has Parent Permission: ' => '' }
-    input_obj.each do |key, _value|
-      print key
-      _value = gets.chomp
-    end
-    student = Student.new('Microverse', input_obj[0], input_obj[1])
+    age, name = get_student_info
+    student = Student.new('Microverse', age, name)
     @people << student
     puts 'Person created successfully'
   end
 
-  def create_teacher
-    input_obj = { 'Age: ' => '', 'Name: ' => '', 'Specialization: ' => '' }
-    input_obj.each do |key, _value|
-      print key
-      _value = gets.chomp
-    end
-    teacher = Teacher.new(input_obj[2], input_obj[0], input_obj[1])
-    @people << teacher
+  def get_teacher_info
+    print 'Age:'
+    age = gets.chomp
+    print 'Name:'
+    name = gets.chomp
+    print 'Specialization:'
+    specialization = gets.chomp
     puts 'Person created successfully'
+    [specialization, age, name]
+  end
+
+  def create_teacher
+    specialization, age, name = get_teacher_info
+    teacher = Teacher.new(specialization, age, name)
+    @people << teacher
   end
 
   def list_people
