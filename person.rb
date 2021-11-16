@@ -31,6 +31,18 @@ class Person
     Rental.new(date, book, self)
   end
 
+  def to_json(*args)
+    {
+      JSON.create_id => self.class.name,
+      "id" => @id,
+      "name" => @name,
+      "age" => @age,
+      "permission" => @parent_permission, 
+      "specialization" => @specialization, 
+      "classroom" => @classroom
+  }.to_json
+  end
+
   private :of_age?
 end
 
