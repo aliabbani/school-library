@@ -16,7 +16,6 @@ class App
     @people = []
     @books = []
     @rentals = []
-    # @fetched_persons_list = []
     @choose_list = {
       '1' => 'List all books',
       '2' => 'List all people',
