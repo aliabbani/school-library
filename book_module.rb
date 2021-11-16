@@ -1,7 +1,7 @@
 require './book'
 
 module NewBook
-  def get_book_info
+  def extract_book_info
     print 'Title: '
     title = gets.chomp
     print 'Author: '
@@ -11,7 +11,7 @@ module NewBook
   end
 
   def create_book
-    title, author = get_book_info
+    title, author = extract_book_info
     book = Book.new(title: title, author: author)
     @books << book
   end
