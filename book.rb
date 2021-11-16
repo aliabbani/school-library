@@ -11,17 +11,15 @@ class Book
     Rental.new(date, self, person)
   end
 
-  def to_json(*args)
+  def to_json(*_args)
     {
       JSON.create_id => self.class.name,
-      "title" => @title,
-      "author" => @author,
-      "rental" => @rentals 
-  }.to_json
+      'title' => @title,
+      'author' => @author,
+      'rental' => @rentals
+    }.to_json
   end
-
-
-  def self.all
-    ObjectSpace.each_object(self).to_a
-  end
+  # def self.all
+  #   ObjectSpace.each_object(self).to_a
+  # end
 end

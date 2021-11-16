@@ -29,8 +29,6 @@ class App
 
   def run
     puts "Welcome to School Library App!\n\n"
-    # @fetched_persons_list << fetch_persons
-    # puts @fetched_persons_list
     fetch_persons
     loop do
       @choose_list.each { |key, value| puts "#{key} - #{value}" }
