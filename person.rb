@@ -1,8 +1,8 @@
 require './corrector'
 
 class Person
-  attr_accessor :name, :age, :parent_permission, :rentals
-  attr_reader :id, :corrector
+  attr_accessor :name, :age, :parent_permission, :rentals, :id
+  attr_reader :corrector
 
   DEFAULT_BOOL = true
 

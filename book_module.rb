@@ -12,8 +12,9 @@ module NewBook
 
   def create_book
     title, author = extract_book_info
-    book = Book.new(title: title, author: author)
+    book = Book.new(title, author)
     @books << book
+    @book_status = true
   end
 
   def list_books

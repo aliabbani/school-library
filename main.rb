@@ -16,6 +16,9 @@ class App
     @people = []
     @books = []
     @rentals = []
+    @person_status = false
+    @book_status = false
+    @rental_status = false
     @choose_list = {
       '1' => 'List all books',
       '2' => 'List all people',
@@ -30,14 +33,15 @@ class App
   def run
     puts "Welcome to School Library App!\n\n"
     read_stored_files
+    puts @rentals
     loop do
       @choose_list.each { |key, value| puts "#{key} - #{value}" }
 
       choose = gets.chomp.to_i
       if choose == 7
-        all_persons(@people)
-        all_books(@books)
-        all_rentals(@rentals)
+        all_persons(@people, @person_status)
+        all_books(@books, @book_status)
+        all_rentals(@rentals, @rental_status)
         puts 'You are amazing. Thank you for using this app!'
         break
       end
