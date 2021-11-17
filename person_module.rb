@@ -24,12 +24,14 @@ module NewPeople
     age, name = get_person_info
     student = Student.new('Microverse', age, name)
     @people << student
+    @person_status = true
   end
 
   def create_teacher
     specialization, age, name = get_person_info('teacher')
     teacher = Teacher.new(specialization, age, name)
     @people << teacher
+    @person_status = true
   end
 
   def list_people

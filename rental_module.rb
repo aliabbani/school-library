@@ -26,6 +26,7 @@ module NewRental
     date = gets.chomp
     rental = Rental.new(date, @books[book_selected], @people[person_rented])
     @rentals << rental
+    @rental_status = true
     puts 'Rental created successfully'
   end
 

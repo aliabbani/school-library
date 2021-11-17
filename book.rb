@@ -1,7 +1,7 @@
 class Book
   attr_accessor :title, :author, :rentals
 
-  def initialize(title:, author:)
+  def initialize(title, author)
     @title = title
     @author = author
     @rentals = []
@@ -11,7 +11,15 @@ class Book
     Rental.new(date, self, person)
   end
 
-  def self.all
-    ObjectSpace.each_object(self).to_a
+  def to_json(*_args)
+    {
+      JSON.create_id => self.class.name,
+      'title' => @title,
+      'author' => @author,
+      'rental' => @rentals
+    }.to_json
   end
+  # def self.all
+  #   ObjectSpace.each_object(self).to_a
+  # end
 end

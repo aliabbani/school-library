@@ -1,8 +1,8 @@
 require './corrector'
 
 class Person
-  attr_accessor :name, :age, :parent_permission, :rentals
-  attr_reader :id, :corrector
+  attr_accessor :name, :age, :parent_permission, :rentals, :id
+  attr_reader :corrector
 
   DEFAULT_BOOL = true
 
@@ -31,11 +31,20 @@ class Person
     Rental.new(date, book, self)
   end
 
+  def to_json(*_args)
+    {
+      JSON.create_id => self.class.name,
+      'id' => @id,
+      'name' => @name,
+      'age' => @age,
+      'permission' => @parent_permission,
+      'specialization' => @specialization,
+      'classroom' => @classroom
+    }.to_json
+  end
+
   private :of_age?
 end
 
 person = Person.new(28, 'bignameishere')
 puts(person.age)
-# puts(person.validate_name())
-
-# parent_permission = { parent_permission: true }

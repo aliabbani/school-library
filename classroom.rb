@@ -12,8 +12,3 @@ class Classroom
     student.classroom = self
   end
 end
-
-# business = Classroom.new("business")
-# puts business.label
-# business.add_student(ali)
-# puts business.students
