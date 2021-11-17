@@ -1,7 +1,6 @@
 module StoreData
   def all_persons(persons, state)
     if state
-      person_json = []
       if persons.empty?
         puts 'No people to show'
       else
@@ -11,7 +10,7 @@ module StoreData
         end
       end
     else
-      return 'No changes made to Persons'
+      'No changes made to Persons'
     end
   end
 
@@ -62,7 +61,7 @@ module StoreData
           store_rentals(new_rental)
         end
       end
-    else 
+    else
       puts 'No changes made to rentals'
     end
   end
@@ -73,8 +72,8 @@ module StoreData
     elsif json_data
       File.new('rentals.json', 'w+')
       File.write('rentals.json', json_data)
-    else 
-      puts 'No data for rentals stored'  
+    else
+      puts 'No data for rentals stored'
     end
   end
 end

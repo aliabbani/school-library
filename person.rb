@@ -48,6 +48,3 @@ end
 
 person = Person.new(28, 'bignameishere')
 puts(person.age)
-# puts(person.validate_name())
-
-# parent_permission = { parent_permission: true }
