@@ -6,18 +6,17 @@ module StoreData
     else
       persons.each do |obj|
         new_person = JSON.generate(obj)
-        person_json << new_person
+        store_person(new_person)
       end
     end
-    store_person(person_json)
   end
 
   def store_person(json_data)
     if File.exist?('person.json')
-      File.write('person.json', json_data.join(", \n"), mode: 'a')
+      File.write('person.json', "&&#{json_data}", mode: 'a')
     else
       File.new('person.json', 'w+')
-      File.write('person.json', json_data.join(", \n"))
+      File.write('person.json', json_data)
     end
   end
 
@@ -28,18 +27,17 @@ module StoreData
     else
       books.each do |obj|
         new_obj = JSON.generate(obj)
-        books_json << new_obj
+        store_book(new_obj)
       end
-      store_book(books_json)
     end
   end
 
   def store_book(json_data)
     if File.exist?('books.json')
-      File.write('books.json', json_data.join(", \n"), mode: 'a')
+      File.write('books.json', "&&#{json_data}", mode: 'a')
     else
       File.new('books.json', 'w+')
-      File.write('books.json', json_data.join(", \n"))
+      File.write('books.json', json_data)
     end
   end
 
