@@ -77,5 +77,47 @@ module ReadFiles
     rental_stored = fetch_rentals
     parse_rental(rental_stored)
   end
+  def fetch_rentals
+     ruby = []
+     data = File.read('rentals.json') if File.exist?('rentals.json')
+     if !data
+       nil
+     else
+     data.split("&&").map {|each| ruby << each}
+     end
+     ruby
+  end
 
+   def parse_rental(arr)
+     arr.each do |each|
+       a = JSON.parse(each)
+       # puts a
+       load_rentals(a)
+     end
+   end
+
+   def load_rentals(obj)
+     @people.each_with_index do |person, i|
+       if person.id == obj["id"] 
+        search_books(obj, i)
+        # puts i
+       end
+        # puts person.id
+     end
+   end
+    
+   def search_books(obj, i)
+     @books.each_with_index do |book, index|
+      if book.title == obj["book"]
+        rental = Rental.new(obj["date"], @books[index], @poeple[i])
+        @rentals << rental
+      end
+     end
+    #  @book.each do |book|
+    #    if book.title == obj["book"]
+    #      rental = Rental.new(obj["date"], book, person)  
+    #      p rental
+    #    end
+    #  end
+   end
 end
