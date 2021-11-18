@@ -46,5 +46,5 @@ class Person
   private :of_age?
 end
 
-person = Person.new(28, 'bignameishere')
-puts(person.age)
+person = Person.new(28, 'ali')
+puts(person.validate_name)
