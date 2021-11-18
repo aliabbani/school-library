@@ -19,7 +19,4 @@ class Book
       'rental' => @rentals
     }.to_json
   end
-  # def self.all
-  #   ObjectSpace.each_object(self).to_a
-  # end
 end
